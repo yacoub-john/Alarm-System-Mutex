@@ -1,4 +1,4 @@
-This C program is an builds upon the original `alarm_thread.c` program, introducing significant improvements to the alarm management system. The key enhancement is the utilization of the main thread for efficiently managing alarms while dynamically creating multiple display threads. Each display thread is responsible for processing and displaying information for its designated set of alarms.
+This C program builds upon the original `alarm_thread.c` program, introducing significant improvements to the alarm management system. The key enhancement is the utilization of the main thread for efficiently managing alarms while dynamically creating multiple display threads. Each display thread is responsible for processing and displaying information for its designated set of alarms.
 
 ## Usage
 
