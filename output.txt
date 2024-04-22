@@ -1,0 +1,87 @@
+/*
+* Please refer to Section 5.1 Scenarios to get specfic use case scenarios
+*/
+
+//Scenario 1
+Alarm>Start_Alarm(1) 10 Message_1
+Alarm(1) Inserted by Main Thread 140703149411200 Into Alarm List at 1699907185: 10 Message_1
+Created New Display Alarm Thread 140703149405760 for Alarm_Time_Group_Number 2 to Display Alarm(1) at 1699907185: 10 Message_1
+Alarm>Alarm(1) Displayed by Display Thread 140703149405760 for Alarm_Time_Group_Number 2 at 1699907195: Message_1
+
+//Scenario 2
+Alarm>Start_Alarm(1) 30 Message_1
+Alarm(1) Inserted by Main Thread 139707421580160 Into Alarm List at 1699907226: 30 Message_1
+Created New Display Alarm Thread 139707421574720 for Alarm_Time_Group_Number 6 to Display Alarm(1) at 1699907226: 30 Message_1
+Alarm>Cancel_Alarm(1)
+Alarm(1) Canceled at 1699907232: 30 Message_1
+Display Alarm Thread 139707421574720 for Alarm_Time_Group_Number 6 Terminated at 1699907232
+
+//Scenario 3
+Alarm>Start_Alarm(1) 30 Message_1
+Alarm(1) Inserted by Main Thread 140190907804544 Into Alarm List at 1699907280: 30 Message_1
+Created New Display Alarm Thread 140190907799104 for Alarm_Time_Group_Number 6 to Display Alarm(1) at 1699907280: 30 Message_1
+Alarm>Replace_Alarm(1) 10 Message_1
+Alarm(1) Replaced at 1699907284: 10 Message_1
+Display Alarm Thread 140190907799104 for Alarm_Time_Group_Number 6 Terminated at 1699907284
+Created New Display Alarm Thread 140190899299904 for Alarm_Time_Group_Number 2 to Display Alarm(1) at 1699907284: 10 Message_1
+Alarm>Alarm(1) Displayed by Display Thread 140190899299904 for Alarm_Time_Group_Number 2 at 1699907294: Message_1
+
+//Scenario 4
+Alarm>Start_Alarm(10) -1 Hello World
+Alarm time must be greater than 0
+Alarm>Start_Alarm(-1) 2 Hello World
+Alarm ID must be greater than 0
+Alarm>Start_Alarm(x) 49 id test
+Bad command
+
+//Scenario 5
+Alarm>Start_Alarm(20) 20 Hello World
+Alarm(20) Inserted by Main Thread 140611675908992 Into Alarm List at 1699907395: 20 Hello World
+Created New Display Alarm Thread 140611675903552 for Alarm_Time_Group_Number 4 to Display Alarm(20) at 1699907395: 20 Hello World
+Alarm>Start_Alarm(20) 20 Hello World
+An alarm with ID 20 already exists.
+
+//Scenario 6
+Alarm>Start_Alarm(20) 20 Message_1
+Alarm(20) Inserted by Main Thread 140256732875648 Into Alarm List at 1699910099: 20 Message_1
+Created New Display Alarm Thread 140256732870208 for Alarm_Time_Group_Number 4 to Display Alarm(20) at 1699910099: 20 Message_1
+Alarm>Replace_Alarm(20) 10 Message_2
+Alarm(20) Replaced at 1699910107: 10 Message_2
+Display Alarm Thread 140256732870208 for Alarm_Time_Group_Number 4 Terminated at 1699910107
+Created New Display Alarm Thread 140256653342272 for Alarm_Time_Group_Number 2 to Display Alarm(20) at 1699910107: 10 Message_2
+Alarm>Cancel_Alarm(20)
+Alarm(20) Canceled at 1699910114: 10 Message_2
+Display Alarm Thread 140256653342272 for Alarm_Time_Group_Number 2 Terminated at 1699910114
+
+//Scenario 7
+Alarm>Replace_Alarm(20) 10 Message_1
+Alarm with ID 20 not found and cannot be replaced.
+Alarm>Cancel_Alarm(20) 10 Message_1
+Alarm with ID 20 not found and cannot be canceled.
+
+//Scenario 8
+Alarm>Start_Alarm(20) 20 Message_1
+Alarm(20) Inserted by Main Thread 140629504666496 Into Alarm List at 1699910795: 20 Message_1
+Created New Display Alarm Thread 140629504661056 for Alarm_Time_Group_Number 4 to Display Alarm(20) at 1699910795: 20 Message_1
+Alarm>Start_Alarm(21) 20 Message_2
+Alarm(21) Inserted by Main Thread 140629504666496 Into Alarm List at 1699910797: 20 Message_2
+Alarm>Alarm(20) Displayed by Display Thread 140629504661056 for Alarm_Time_Group_Number 4 at 1699910815: Message_1
+Alarm(21) Displayed by Display Thread 140629504661056 for Alarm_Time_Group_Number 4 at 1699910817: Message_2
+
+//Scenario 9
+Alarm>Start_Alarm(1) 51 M1 
+Alarm(1) Inserted by Main Thread 140683756878720 Into Alarm List at 1699912030: 51 M1
+Created New Display Alarm Thread 140683756873280 for Alarm_Time_Group_Number 11 to Display Alarm(1) at 1699912030: 51 M1
+Alarm>Start_Alarm(2) 52 M2
+Alarm(2) Inserted by Main Thread 140683756878720 Into Alarm List at 1699912044: 52 M2
+Alarm>Start_Alarm(3) 53 M3
+Alarm(3) Inserted by Main Thread 140683756878720 Into Alarm List at 1699912055: 53 M3
+Alarm>Start_Alarm(4) 54 M4
+Alarm(4) Inserted by Main Thread 140683756878720 Into Alarm List at 1699912066: 54 M4
+Alarm>Start_Alarm(5) 55 M5
+Alarm(5) Inserted by Main Thread 140683756878720 Into Alarm List at 1699912075: 55 M5
+Alarm(1) Displayed by Display Thread 140683756873280 for Alarm_Time_Group_Number 11 at 1699912081: M1
+Alarm(2) Displayed by Display Thread 140683756873280 for Alarm_Time_Group_Number 11 at 1699912096: M2
+Alarm(3) Displayed by Display Thread 140683756873280 for Alarm_Time_Group_Number 11 at 1699912108: M3
+Alarm(4) Displayed by Display Thread 140683756873280 for Alarm_Time_Group_Number 11 at 1699912120: M4
+Alarm(5) Displayed by Display Thread 140683756873280 for Alarm_Time_Group_Number 11 at 1699912130: M5
